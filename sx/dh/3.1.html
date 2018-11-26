@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+<style>
+*{
+    margin:0;
+    padding:0;
+    }
+   div{
+        width:200px;
+        height:150px;
+        background:url(test/ima/weixin.png) no-repeat;
+        filter:alpha(opacity:90);
+        opacity:1;
+        float:left;
+        }
+</style>
+<script>
+ window.onload=function(){
+     var odiv=document.getElementsByTagName("div");
+     for(var i=0;i<odiv.length;i++){
+     
+      odiv[i].onmouseover=function(){
+          odiv[i].startMove(this,50);
+          }
+          odiv[i].onmouseout=function(){
+              startMove(this,100);
+              }
+         }
+     }
+     var timer=null;
+     var alpha=100;
+function startMove(obj,iTarget){
+    //var odiv=document.getElementsByTagName("div");
+        
+    clearInterval(obj.timer);
+    obj.timer=setInterval(function(){
+        if(alpha>iTarget){
+            speed=-10;
+            }else{
+                speed=10;
+                }
+        if(alpha==iTarget){
+            clearInterval(obj.timer);
+            }else{
+                alpha+=speed;
+                obj.style.filter='alpha(opacity:'+alpha+')';
+                obj.style.opacity=alpha/100;
+                }
+        },10)
+    }
+</script></head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+</body>
+</html>

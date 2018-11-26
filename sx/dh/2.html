@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<title>无解</title>
+
+		<style type="text/css">
+			body,
+			div,
+			span {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#div1 {
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: relative;
+				left: -200px;
+				top: 0;
+			}
+			
+			#div1 span {
+				width: 20px;
+				height: 50px;
+				background: blue;
+				position: absolute;
+				left: 200px;
+				top: 75px;
+			}
+		</style>
+
+		<script type="text/javascript">
+            window.onload = function () {
+                var odiv = document.getElementById('div1');
+                odiv.onmouseover = function () {
+                    startMove(0);
+                }
+                odiv.onmouseout = function () {
+                    startMove(-200);
+                }
+            }
+            var timer = null;
+            
+            function startMove (iTarget) {
+                
+                
+                clearInterval(timer);
+                var odiv = document.getElementById('div1');
+                timer = setInterval(function () {
+                    var speed = (iTarget - odiv.offsetLeft)/20;
+                    speed = speed>0?Math.ceil(speed):Math.floor(speed);
+                    if(odiv.offsetLeft == iTarget){
+                    clearInterval(timer);
+                    }else{
+                       odiv.style.left = odiv.offsetLeft + speed + 'px';
+                       }
+                },30);            
+            }
+        </script>
+
+	</head>
+
+	<body>
+
+		<div id="div1">
+
+			<span id="share">分享</span>
+
+		</div>
+
+	</body>
+
+	</html

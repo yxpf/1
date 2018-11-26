@@ -1,0 +1,119 @@
+<!DOVTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>test5-淘宝案例</title>
+
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 306px;
+				height: 204px;
+				background: #ccc;
+				margin: 30px auto;
+				border: 1px solid #9c9c9c;
+			}
+			
+			#box a {
+				position: relative;
+				float: left;
+				width: 80px;
+				height: 80px;
+				line-height: 90px;
+				background-color: #fff;
+				margin: 10px;
+				text-align: center;
+				font-size: 12px;
+				text-decoration: none;
+				color: #ccc;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+				font-weight: 600;
+				overflow: hidden;
+			}
+			
+			#box a i {
+				display: block;
+				position: absolute;
+				top: 20px;
+				left: 30px;
+				filter: alpha(opcity:100);
+				opacity: 1;
+			}
+			
+			#box a:hover {
+				color: #f00;
+			}
+		</style>
+
+		<script src="js/jquery-3.3.1.min.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+
+				$('#box a').mouseenter(function() {
+
+					$(this).find('i').animate({
+						top: "-25px",
+						opacity: "0"
+					}, 300, function() {
+
+						$(this).css({
+							top: "30px"
+						});
+
+						$(this).animate({
+							top: "20px",
+							opacity: "1"
+						}, 200)
+
+					})
+
+				})
+
+			})
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="box">
+
+			<a href="#"><i><img src="img/1.jpg"></i>
+				<p>美食</p>
+			</a>
+
+			<a href="#"><i><img src="img/2.jpg"></i>
+				<p>游戏</p>
+			</a>
+
+			<a href="#"><i><img src="img/3.jpg"></i>
+				<p>保险</p>
+			</a>
+
+			<a href="#"><i><img src="img/4.jpg"></i>
+				<p>彩票</p>
+			</a>
+
+			<a href="#"><i><img src="img/5.jpg"></i>
+				<p>电影</p>
+			</a>
+
+			<a href="#"><i><img src="img/6.jpg"></i>
+				<p>旅游</p>
+			</a>
+
+		</div>
+
+	</body>
+
+</html>
